@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUMA - MyWebsite</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      border-bottom: 2px solid #fff;
+    }
+
+    .main {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .main img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .intro {
+      margin-top: 30px;
+    }
+
+    .intro h2 {
+      font-size: 32px;
+      color: #111;
+    }
+
+    .intro p {
+      font-size: 18px;
+      color: #555;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .cta-button {
+      padding: 12px 25px;
+      font-size: 16px;
+      color: white;
+      background-color: #e4002b;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #c30025;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+      color: #fff;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MyWebsite</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="main">
+    <img src="https://images.unsplash.com/photo-1606813909235-405bf9f56b5f?auto=format&fit=crop&w=800&q=80" alt="Puma Shoes" />
+    
+    <div class="intro">
+      <h2>Welcome to PUMA</h2>
+      <p>Step into style and performance with our latest Puma collection. Designed for athletes, creators, and every lifestyle in between. Discover what makes Puma the choice for champions around the world.</p>
+      <button class="cta-button" onclick="learnMore()">Shop Now</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 PUMA. All rights reserved.
+  </footer>
+
+  <script>
+    function learnMore() {
+      alert("Thank you for your interest! Redirecting to the shop...");
+      window.location.href = "https://us.puma.com";
+    }
+  </script>
+
+</body>
+</html>
