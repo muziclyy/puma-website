@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>wow! Momos & Fast Food</title>
+  <style>
+    :root {
+      --primary: #521e0b;       /* orange */
+      --accent: #ce0404e4;        /* red */
+      --dark: #212121;          /* Near Black */
+      --text: #fff;
+      --light-bg:;
+      --shadow: 0 4px 20px rgba(25, 118, 210, 0.13);
+      --light-bg:background-image:url("https://static.vecteezy.com/system/resources/previews/002/129/263/original/abstract-white-background-with-elements-of-useful-food-vector.jpgf");
+
+    }
+    body {
+      margin: 0;
+      font-family: 'Forte', Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--dark);
+    }
+    header {
+      background: var(--primary);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 48px;
+      margin-right: 12px;
+      border-radius: 50%;
+      border: 3px solid var(--text);
+      background: var(--text);
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 28px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: opacity 0.3s;
+    }
+    nav a:hover {
+      opacity: 0.8;
+      color: var(--accent);
+    }
+    /* Hero Section */
+    .hero {
+      background-image:
+        linear-gradient(120deg, rgba(25,118,210,0.85) 50%, rgba(211,47,47,0.7)),
+        url('https://img.freepik.com/premium-photo/plate-assorted-momos-realistic-high-quality-p_1114068-13813.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--text);
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 18px;
+      letter-spacing: 8px;
+      text-shadow: 2px 2px 16px #000;
+    }
+    .hero p {
+      font-size: 1.7rem;
+      max-width: 650px;
+      margin: 0 auto 32px;
+      font-weight: 400;
+      text-shadow: 1px 1px 10px #000;
+    }
+    .hero .cta-btn {
+      background: var(--accent);
+      color: var(--text);
+      padding: 18px 48px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero .cta-btn:hover {
+      background: var(--primary);
+    }
+    /* Sections */
+    .section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 800;
+    }
+    /* Featured */
+    .featured {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .featured-item {
+      background: var(--text);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 28px 22px;
+      width: 320px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .featured-item:hover {
+      transform: translateY(-8px) scale(1.03);
+      border: 2px solid var(--accent);
+    }
+    .featured-item img {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      border: 4px solid var(--primary);
+    }
+    .featured-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+    .featured-item p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    /* Menu */
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+    }
+    .menu-card {
+      background: var(--text);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-card:hover {
+      transform: scale(1.03);
+      border: 2px solid var(--accent);
+    }
+    .menu-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+    .menu-card-content {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .menu-card h4 {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: 1.15rem;
+    }
+    .menu-card p {
+      font-size: 0.97rem;
+      color: #444;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+    .menu-card .price {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    /* About */
+    .about {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+      background: var(--text);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 40px 24px;
+    }
+    .about img {
+      width: 320px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(25,118,210,0.12);
+    }
+    .about-content {
+      flex: 1;
+      min-width: 260px;
+    }
+    .about-content h2 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .about-content p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .testimonial {
+      background: var(--text);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 24px 20px;
+      max-width: 340px;
+      text-align: center;
+    }
+    .testimonial img {
+      width: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 3px solid var(--primary);
+    }
+    .testimonial p {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .testimonial .name {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      transition: transform 0.3s;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      border: 2px solid var(--accent);
+    }
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #e3f2fd 0%, #d32f2f 100%);
+      padding: 60px 0;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      max-width: 1100px;
+      margin: 0 auto 60px;
+    }
+    .contact-section h2 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+    .contact-top-images {
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .contact-top-images img {
+      width:90px;
+      border-radius:50%;
+      box-shadow:0 2px 12px rgba(0,0,0,0.09);
+      margin:0 10px;
+    }
+    .contact-details-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0 24px;
+    }
+    .contact-details {
+      flex:1 1 260px;
+      min-width:240px;
+      background:var(--text);
+      border-radius:16px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.08);
+      padding:32px;
+      color: var(--dark);
+    }
+    .contact-details h3 {
+      color:var(--accent);
+      margin-bottom:10px;
+    }
+    .contact-details p {
+      margin-bottom:12px;
+    }
+    .contact-details a {
+      color:var(--primary);
+      text-decoration:underline;
+    }
+    .social-media {
+      margin-top:18px;
+      text-align:left;
+    }
+    .social-media a {
+      margin-right:10px;
+      display:inline-block;
+      transition:transform 0.3s;
+    }
+    .social-media a img {
+      width:36px;
+      background:var(--primary);
+      border-radius:50%;
+      padding:6px;
+    }
+    .social-media a:hover {
+      transform:scale(1.18);
+      background:var(--accent);
+    }
+    /* Contact Form */
+    .contact-form {
+      flex:2 1 340px;
+      min-width:260px;
+      background:var(--text);
+      border-radius:16px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.08);
+      padding:32px;
+      color: var(--dark);
+    }
+    .contact-form h3 {
+      color:var(--accent);
+      margin-bottom:10px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width:100%;
+      margin-bottom:14px;
+      padding:12px;
+      border:2px solid var(--primary);
+      border-radius:8px;
+      font-size:1rem;
+      color: var(--dark);
+    }
+    .contact-form textarea {
+      min-height:90px;
+    }
+    .contact-form button {
+      background:var(--accent);
+      color:var(--text);
+      border:none;
+      padding:15px 40px;
+      font-weight:700;
+      font-size:1.1rem;
+      border-radius:8px;
+      cursor:pointer;
+      transition:background 0.3s;
+    }
+    .contact-form button:hover {
+      background:var(--primary);
+    }
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: var(--text);
+      text-align: center;
+      padding: 32px 10px 18px;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+    }
+    .footer-details {
+      max-width: 1200px;
+      margin: 0 auto 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 1rem;
+    }
+    .footer-col {
+      flex: 1 1 220px;
+      min-width: 180px;
+      margin-bottom: 18px;
+      text-align:left;
+    }
+    .footer-col h4 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+    .footer-col a {
+      color: #bbdefb;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+    .footer-social {
+      margin-top: 12px;
+    }
+    .footer-social a {
+      margin-right: 8px;
+      display: inline-block;
+    }
+    .footer-social img {
+      width: 28px;
+      background: var(--primary);
+      border-radius: 50%;
+      padding: 4px;
+    }
+    @media (max-width: 900px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about img {
+        margin-bottom: 22px;
+      }
+      .footer-details {
+        flex-direction: column;
+        gap: 18px;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 8px;
+      }
+      .logo {
+        font-size: 1.3rem;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        font-size: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .about img {
+        width: 95vw;
+      }
+      .featured {
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with logo and navigation -->
+  <header>
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="wow! logo" />
+      wow! <span style="font-size:1.1rem;margin-left:6px;">Momos & Fast Food</span>
+    </div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#featured">Specials</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Red & Blue Background Image -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>wow! Momos & Fast Food</h1>
+      <p>Fresh, juicy momos and fast food that will make you say WOW! Taste the best street flavors, delivered hot and fast.</p>
+      <button class="cta-btn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">See Menu</button>
+    </div>
+  </section>
+
+  <!-- Featured Momos Section -->
+  <section class="section" id="featured">
+    <div class="section-title">Our Special Momos</div>
+    <div class="featured">
+      <div class="featured-item">
+        <img src="https://img.freepik.com/premium-photo/hot-steam-momos-plate_601128-6465.jpg" alt="classic Momos" />
+        <h3>Classic Steamed Momos</h3>
+        <p>Soft, juicy, and packed with flavor. Served with spicy chutney.</p>
+        <div class="price">₹80</div>
+      </div>
+      <div class="featured-item">
+        <img src='https://images.slurrp.com/prodarticles/5vhjp9wtd7f.webp' alt="Tandoori Momos" />
+        <h3>Tandoori Momos</h3>
+        <p>Smoky, spicy, and grilled to perfection. A must-try for momo lovers.</p>
+        <div class="price">₹120</div>
+      </div>
+      <div class="featured-item">
+        <img src="https://img.freepik.com/premium-photo/veg-fried-momos-with-red-chutney-black-background-generative-ai_802140-414.jpg?w=2000" alt="Fried Veg Momos" />
+        <h3>Fried Veg Momos</h3>
+        <p>Crispy outside, deliciously filled inside. Perfect for snack cravings.</p>
+        <div class="price">₹90</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="section" id="menu">
+    <div class="section-title">Menu</div>
+    <div class="menu-list">
+      <div class="menu-card">
+        <img src="https://c.ndtvimg.com/2022-07/9f0la2fg_veg-momo_625x300_06_July_22.png" alt="Veg Momos" />
+        <div class="menu-card-content">
+          <h4>Veg Momos</h4>
+          <p>Steamed or fried, stuffed with fresh veggies and served with tangy sauce.</p>
+          <div class="price">₹70</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://buddymantra.com/wp-content/uploads/2020/08/11-1-755x420.jpg" alt="Chicken Momos" />
+        <div class="menu-card-content">
+          <h4>Chicken Momos</h4>
+          <p>Juicy chicken filling in soft wrappers, best with our spicy dip.</p>
+          <div class="price">₹90</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://pnghq.com/wp-content/uploads/veg-momo-free-png-images-44037.png" alt="Paneer Momos" />
+        <div class="menu-card-content">
+          <h4>Paneer Momos</h4>
+          <p>Delicious paneer and veggie stuffing in every bite. Steamed or fried.</p>
+          <div class="price">₹100</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://vegecravings.com/wp-content/uploads/2016/09/spring-roll-recipe-step-by-step-instructions.jpg" alt="Spring Rolls" />
+        <div class="menu-card-content">
+          <h4>Spring Rolls</h4>
+          <p>Crunchy rolls filled with veggies/chicken, served with sweet chili sauce.</p>
+          <div class="price">₹80</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://laurenslatest.com/wp-content/uploads/2021/04/chow-mein-12-scaled.jpg" alt="Chowmein" />
+        <div class="menu-card-content">
+          <h4>Chowmein</h4>
+          <p>Stir-fried noodles with veggies/chicken, tossed in our special sauce.</p>
+          <div class="price">₹90</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://static.vecteezy.com/system/resources/previews/019/023/604/non_2x/front-view-tasty-meat-burger-with-cheese-and-salad-free-photo.jpg" alt="Burger" />
+        <div class="menu-card-content">
+          <h4>Veg/Chicken Burger</h4>
+          <p>Soft buns, juicy patties, loaded with fresh veggies and sauces.</p>
+          <div class="price">₹60/₹80</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://forktospoon.com/wp-content/uploads/2024/02/Leftover-McDonalds-French-Fries-406x541.png" alt="French Fries" />
+        <div class="menu-card-content">
+          <h4>French Fries</h4>
+          <p>Crispy golden fries, perfect with ketchup or mayo dip.</p>
+          <div class="price">₹50</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://i.ytimg.com/vi/Zm-bEtAWTXo/maxresdefault.jpg" alt="Schezwan Momos" />
+        <div class="menu-card-content">
+          <h4>Schezwan Momos</h4>
+          <p>Spicy, tangy, and full of flavor. A fiery treat for momo fans.</p>
+          <div class="price">₹110</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="about">
+      <img src="https://th.bing.com/th/id/OIP.RoS8cZdklnc9xvIhmiVFbQHaE8?rs=1&pid=ImgDetMain" alt="About wow! Momos" />
+      <div class="about-content">
+        <h2>About wow!</h2>
+        <p>
+          At wow! Momos & Fast Food, co-owned by <b>Miss Palak</b> and <b>Miss Preeti</b>, we bring you the tastiest momos and street food classics, made fresh every day. Our journey started with a passion for authentic flavors and a love for sharing happiness through food. Whether you crave classic steamed momos, spicy tandoori, or crispy fast food, every bite is made with care and the best ingredients.
+        </p>
+        <p>
+          We believe in great taste, quick service, and a fun, friendly vibe. Visit us, order online, or connect on social media-let’s make every meal a wow! moment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials">
+    <div class="section-title">What Our Customers Say</div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <img src="https://cdn.britannica.com/82/220482-050-17843B41/Priyanka-Chopra-2020.jpg" alt="Customer" />
+        <p>"The tandoori momos are out of this world! Super juicy and spicy. Highly recommended."</p>
+        <div class="name">Priyanka .</div>
+      </div>
+      <div class="testimonial">
+        <img src="https://healthkeeda.com/wp-content/uploads/2023/03/sai-pallavi-hairstyles-45.jpg" alt="Customer" />
+        <p>"Best fast food joint in town. Love the variety and the taste. Always fresh and delicious."</p>
+        <div class="name">sai pallavi</div>
+      </div>
+      <div class="testimonial">
+        <img src="" alt="Customer" />
+        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BODk4MDg5MzE4OF5BMl5BanBnXkFtZTgwNTc4ODEzOTE@._V1_UY1200_CR114,0,630,1200_AL_.jpg" alt="dhanush " />
+        <p>"Quick service, friendly staff, and the fried momos are my favorite snack!"</p>
+        <div class="name">dhanush </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section" id="gallery">
+    <div class="section-title">Gallery</div>
+    <div class="gallery-grid">
+      <img src="https://images-cdn.9gag.com/photo/aKm9Lyj_700b.jpg" alt="Momo Platter" />
+      <img src="https://www.yumcurry.com/wp-content/uploads/2021/05/chilli-garlic-momos-feature-image.jpg" alt="chili Food" />
+      <img src="https://foodsfactory.co.in/Fastfood/upload/images/6640-2022-08-27.JPG" alt="chesse corn Momos" />
+      <img src="https://i.pinimg.com/736x/09/93/76/0993763ba9895aec3d912ac36f9ee721.jpg" alt="Fast Food" />
+      <img src="https://i.imgenic.com/media/15095/perfectly-steamed-tibetan-momos-with-spicy-dipping-sauce-on-rustic-wood-surface.jpg" alt="Chutney & Momos" />
+      <img src="https://img.freepik.com/premium-photo/hot-momos-with-tangy-dipping-sauce-realistic-hig_1114068-13414.jpg?w=2000" alt="Dipping Momos" />
+    </div>
+  </section>
+
+  <!-- Contact Section with Owners, Social Media, Images -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-top-images">
+      <img src="https://images-cdn.9gag.com/photo/aKm9Lyj_700b.jpg" alt="Momos Platter" />
+      <img src="https://i.pinimg.com/736x/09/93/76/0993763ba9895aec3d912ac36f9ee721.jpg" alt="Fast Food" />
+    </div>
+    <div class="contact-details-form">
+      <!-- Contact Details -->
+      <div class="contact-details">
+        <h3>Get to Know Us</h3>
+        <p><strong>Owners:</strong><br>Miss Palak &amp; Miss Preeti</p>
+        <h3>Connect With Us</h3>
+        <p>
+          <strong>Email:</strong><br>
+          <a href="mailto:muziiclyy0@gmail.com">muziiclyy0@gmail.com</a>
+        </p>
+        <p>
+          <strong>Address:</strong><br>
+          wow! Momos &amp; Fast Food,<br>
+          Main Market, Your City, India
+        </p>
+        <p>
+          <strong>Hours:</strong><br>
+          Mon-Sun: 11:00 AM – 11:00 PM
+        </p>
+        <div class="social-media" aria-label="Social Media Links">
+          <a href="https://www.facebook.com/wowfood" target="_blank" aria-label="Facebook">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/wowfood" target="_blank" aria-label="Instagram">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+          </a>
+          <a href="https://twitter.com/wowfood" target="_blank" aria-label="Twitter">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+          </a>
+          <a href="https://www.youtube.com/@wowfood" target="_blank" aria-label="YouTube">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+          </a>
+          <a href="https://www.linkedin.com/company/wow-momo" target="_blank" aria-label="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" />
+          </a>
+          <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+          </a>
+          <a href="mailto:muziiclyy0@gmail.com" aria-label="Email">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
+          </a>
+        </div>
+      </div>
+      <!-- Contact Form -->
+      <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+        <h3>Let Us Help You</h3>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer with Details -->
+  <footer>
+    <div class="footer-details">
+      <div class="footer-col">
+        <h4>About wow!</h4>
+        <p>Fresh, juicy momos and fast food-made with love by Miss Palak & Miss Preeti. Your favorite spot for authentic flavors and quick bites.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: <a href="mailto:muziiclyy0@gmail.com">muziiclyy0@gmail.com</a></li>
+          <li>Address: Main Market, Your City, India</li>
+          <li>Hours: 11:00 AM – 11:00 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/wowfood" target="_blank" aria-label="Facebook">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/wowfood" target="_blank" aria-label="Instagram">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+          </a>
+          <a href="https://twitter.com/wowfood" target="_blank" aria-label="Twitter">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+          </a>
+          <a href="https://www.youtube.com/@wowfood" target="_blank" aria-label="YouTube">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+          </a>
+          <a href="https://www.linkedin.com/company/wow-momo" target="_blank" aria-label="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" />
+          </a>
+          <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+          </a>
+        </div>
+      </div>
+    </div>
+    &copy; 2025 wow! Momos & Fast Food - All Rights Reserved.
+  </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if(name && email && message) {
+        alert(`Thank you, ${name}! Your message has been sent to wow! Momos & Fast Food.`);
+        form.reset();
+      } else {
+        alert('Please fill all fields correctly.');
+      }
+    }
+  </script>
+</body>
+</html>
