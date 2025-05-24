@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vikshit Bharat - Startup Exhibition (SMJN)</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #ff6f00;
+      --white: #ffffff;
+      --green: #1b5e20;
+      --dark: #222;
+      --light: #f5f7fa;
+      --black: #000000;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .title-bar {
+      background: var(--black);
+      padding: 32px 0 16px 0;
+      text-align: center;
+    }
+    .site-title {
+      color: #fff;
+      font-size: 2.8rem;
+      font-weight: bold;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 0 var(--orange), 2px 2px 0 var(--green);
+      display: inline-block;
+    }
+    header {
+      background: linear-gradient(90deg, var(--orange) 0%, var(--white) 50%, var(--green) 100%);
+      color: var(--dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(30, 144, 255, 0.08);
+      padding-bottom: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0.5rem 2rem 1rem 2rem;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links li a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 1.1rem;
+    }
+    .nav-links li a:hover {
+      color: var(--orange);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      background: linear-gradient(120deg, var(--orange) 0%, var(--white) 50%, var(--green) 100%);
+      color: var(--dark);
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .hero img {
+      width: 320px;
+      max-width: 80vw;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+      border: 5px solid var(--green);
+      background: #fff;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-shadow: 1px 1px 0 var(--green);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .lead-by {
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    .hero .cta-btn {
+      background: var(--green);
+      color: var(--white);
+      padding: 0.9rem 2.2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(249, 168, 37, 0.15);
+      transition: background 0.2s;
+    }
+    .hero .cta-btn:hover {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: 0 2px 16px rgba(30, 144, 255, 0.06);
+    }
+    section h2 {
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    section h3 {
+      color: var(--orange);
+      margin-top: 1.5rem;
+    }
+    section p,
+    section ul {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .about-list {
+      padding-left: 1.5rem;
+    }
+    .lead-by-section {
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--green);
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: var(--orange);
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+    .form-message {
+      margin-top: 1rem;
+      color: var(--green);
+      font-weight: 600;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .social-links a {
+      color: var(--orange);
+      font-size: 2rem;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      color: var(--green);
+    }
+    .contact-rep {
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--green);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      section {
+        padding: 1rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero img {
+        width: 220px;
+      }
+      section {
+        margin: 2rem 0.5rem;
+      }
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: row;
+        padding: 1rem;
+      }
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        width: 70vw;
+        align-items: flex-start;
+        padding: 1.5rem 2rem;
+        display: none;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/7e4f3c6c2e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="title-bar">
+      <span class="site-title">Vikshit Bharat</span>
+    </div>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#aboutus">About Us</a></li>
+        <li><a href="#newstartup">New Startup</a></li>
+        <li><a href="#technology">New Technology</a></li>
+        <li><a href="#defence">Indian Defence System</a></li>
+        <li><a href="#exhibitions">SMJN Exhibitions</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img src="https://www.mxmindia.com/wp-content/uploads/2024/08/viksit-bharath.jpg" alt="Startup Exhibition" />
+    <h1>Welcome to Vikshit Bharat Startup Exhibition</h1>
+    <p>
+      Join us at SMJN for an inspiring event where innovation meets opportunity! Discover new startups, connect with entrepreneurs, and be a part of India's growth story.
+    </p>
+    <div class="lead-by">Led by Palak under Government</div>
+    <a href="#aboutus"><button class="cta-btn">Learn More About Us</button></a>
+  </section>
+
+  <section id="aboutus">
+    <h2>About Us</h2>
+    <div class="lead-by-section">Led by Palak under Government</div>
+    <p>
+      We are a team of young, energetic individuals dedicated to creating a platform where startups can shine, connect with the right people, and grow faster. We make it easy for everyone—students, professionals, and investors—to come together and build a better, developed India.
+    </p>
+    <p>
+      Vikshit Bharat is not just an event; it's a movement towards progress, creativity, and entrepreneurship. Whether you have a startup idea, want to learn, or are looking to invest, this exhibition is for you!
+    </p>
+  </section>
+
+  <section id="newstartup">
+    <h2>New Startup</h2>
+    <div class="lead-by-section">Led by Palak under Government</div>
+    <p>
+      This year, Vikshit Bharat is proud to feature several new startups that are making a difference in technology, sustainability, and social impact. These startups are founded by young entrepreneurs and are supported by the latest government initiatives.
+    </p>
+    <ul class="about-list">
+      <li><strong>EcoSmart Solutions:</strong> Providing affordable smart home automation for energy savings and security.</li>
+      <li><strong>AgroNext:</strong> Empowering farmers with AI-driven crop monitoring and market access platforms.</li>
+      <li><strong>HealthBridge:</strong> Connecting rural areas to quality healthcare through telemedicine and mobile clinics.</li>
+      <li><strong>EduLeap:</strong> Revolutionizing education with interactive digital content and personalized learning apps.</li>
+    </ul>
+    <p>
+      These startups represent the spirit of innovation and the vision of a developed India, led by Palak under Government.
+    </p>
+  </section>
+
+  <section id="technology">
+    <h2>New Technology</h2>
+    <div class="lead-by-section">Led by Palak under Government</div>
+    <p>
+      India is rapidly advancing in technology, especially in the fields of Artificial Intelligence, Machine Learning, robotics, cyber and space technologies. The government’s focus on innovation has led to breakthroughs in autonomous drones, smart manufacturing, and digital infrastructure. Startups are actively contributing to sectors like healthcare, agriculture, and fintech with cutting-edge solutions, making India a global hub for technology and innovation.
+    </p>
+    <ul class="about-list">
+      <li>Advanced drones and unmanned aerial vehicles (UAVs) for surveillance and delivery.</li>
+      <li>AI-powered applications in healthcare, agriculture, and defense.</li>
+      <li>Smart manufacturing and Industry 4.0 solutions.</li>
+      <li>Cybersecurity and space technology for national security.</li>
+      <li>Robotics and automation in various industries.</li>
+    </ul>
+  </section>
+
+  <section id="defence">
+    <h2>Indian Defence System</h2>
+    <div class="lead-by-section">Led by Palak under Government</div>
+    <p>
+      The Indian Defence System is undergoing a historic transformation in 2025, marked as the ‘Year of Reforms’ by the Ministry of Defence. India is focusing on modernizing its armed forces, integrating new technologies, and strengthening indigenous manufacturing to ensure national security and global competitiveness.
+    </p>
+    <ul class="about-list">
+      <li>Rollout of the Tejas MkII advanced fighter jet prototype.</li>
+      <li>Strengthening indigenous drone and UAV programs for surveillance and combat.</li>
+      <li>Implementation of Integrated Theatre Commands to unify Army, Navy, and Air Force operations.</li>
+      <li>Acquisition of advanced weapons like BrahMos missiles, Pinaka rocket launchers, and Prachand helicopters.</li>
+      <li>Focus on cyber and space warfare, AI, and robotics for future-readiness.</li>
+      <li>Public-private partnerships and support for defence startups under the Atmanirbhar Bharat initiative.</li>
+    </ul>
+    <p>
+      These reforms and innovations ensure that India remains secure, self-reliant, and ready to face modern challenges.
+    </p>
+  </section>
+
+  <section id="exhibitions">
+    <h2>All 3 Exhibitions at SMJN College</h2>
+    <div class="lead-by-section">Led by Palak under Government</div>
+    <ul class="about-list">
+      <li>
+        <strong>Startup Innovation Expo 2023:</strong> The first exhibition highlighted local startups, digital solutions, and entrepreneurship workshops, drawing hundreds of students and industry experts to SMJN College.
+      </li>
+      <li>
+        <strong>Green Future Tech Fair 2024:</strong> Focused on sustainable technologies, clean energy, and eco-friendly products, this event promoted environmental awareness and green innovation.
+      </li>
+      <li>
+        <strong>Vikshit Bharat Startup Exhibition 2025:</strong> The latest and biggest event, featuring national-level startups, new technology showcases, and sessions on Indian defence systems, all under the guidance of Palak and the Government.
+      </li>
+    </ul>
+    <p>
+      Each exhibition at SMJN College has contributed to the growth of innovation and entrepreneurship in the region.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-rep">
+      Representative: <strong>Palak</strong> | Organized by <strong>Government</strong>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>
+      Have questions or want to participate? Fill out the form below or email us at <a href="mailto:info@vikshitbharat.com">info@vikshitbharat.com</a>
+    </p>
+    <form class="contact-form" id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+  </section>
+
+  <footer style="text-align:center; padding:1.5rem 0; color:#fff; background:linear-gradient(90deg,#ff6f00 0%,#fff 50%,#1b5e20 100%);">
+    &copy; 2025 Vikshit Bharat | All Rights Reserved
+  </footer>
+
+  <script>
+    // Responsive Navbar
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.onclick = () => navLinks.classList.toggle('open');
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+
+    // Contact Form Validation
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const formMessage = document.getElementById('formMessage');
+      if (!name || !email || !message) {
+        formMessage.style.color = 'red';
+        formMessage.textContent = 'Please fill in all fields.';
+        return;
+      }
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        formMessage.style.color = 'red';
+        formMessage.textContent = 'Please enter a valid email address.';
+        return;
+      }
+      formMessage.style.color = 'green';
+      formMessage.textContent = 'Thank you! Your message has been sent.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
